@@ -7,9 +7,12 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
+  //connectionString: process.env.DATABASE_URL,
+  //ssl: process.env.PGSSLMODE === 'require' ? { rejectUnauthorized: false } : false,
   connectionString: process.env.DATABASE_URL,
-  // Belangrijk voor SSL bij Supabase/Cloud om foutmeldingen te voorkomen
-  ssl: process.env.PGSSLMODE === 'require' ? { rejectUnauthorized: false } : false,
+  ssl: {
+    rejectUnauthorized: false, // nodig voor Render
+  },
 });
 
 module.exports = pool;
