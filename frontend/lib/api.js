@@ -4,7 +4,7 @@
 // ===========================================
 
 // Verander dit naar je Railway backend URL zodra je hebt gedeployed.
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL //|| "http://localhost:5000/api";
 
 // Haal lijst met producten op met paginering
 export async function getProducts(limit = 12, offset = 0) {
