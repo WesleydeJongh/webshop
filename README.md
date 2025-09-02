@@ -2,9 +2,9 @@
 
 Dit project bestaat uit:
 
-- **frontend/**: Next.js (Vercel) – productoverzicht, detail, winkelmand, checkout, admin, logs
-- **backend/**: Express (Railway) – API voor producten, orders (met e-mail via Resend), admin CRUD, logs
-- **database/**: SQL schema + seed voor Supabase (PostgreSQL)
+- **frontend/**: Next.js (Render.com) – productoverzicht, detail, winkelmand, checkout, admin, logs
+- **backend/**: Express (Render.com) – API voor producten, orders (met e-mail via Resend), admin CRUD, logs
+- **database/**: SQL schema + seed (Render.com) (via PostgreSQL)
 
 ## Snel starten (lokaal)
 
@@ -16,7 +16,7 @@ Dit project bestaat uit:
    ```bash
    cd backend
    cp .env.example .env
-   # Vul DATABASE_URL, RESEND_API_KEY (optioneel), ADMIN_TOKEN, enz. in
+   # Vul DATABASE_URL, ADMIN_TOKEN, enz. in
    npm install
    npm run dev
    ```
@@ -31,34 +31,6 @@ Dit project bestaat uit:
    ```
 
 Open http://localhost:3000
-
-## Deploy (gratis tiers)
-
-- **Database**: Supabase (gratis)
-  - Maak project, kopieer `DATABASE_URL` (connection string).
-  - Voer `schema.sql` en `seed.sql` uit in de SQL editor.
-
-- **Backend**: Railway
-  - Nieuw project → deploy van GitHub repo of handmatig.
-  - Zet environment variables uit `.env.example`.
-  - Zet `PORT` (Railway doet dat automatisch), `PGSSLMODE=require`.
-  - Noteer de publieke URL van je backend, bv: `https://xxx.up.railway.app`
-
-- **Frontend**: Vercel
-  - Importeer `frontend` map als project.
-  - Zet environment variables uit `frontend/.env.example`.
-  - Zet `NEXT_PUBLIC_API_URL` naar `https://xxx.up.railway.app/api`.
-
-- **Resend** (optioneel voor e-mail)
-  - Maak een account aan bij https://resend.com (gratis tier).
-  - Zet `RESEND_API_KEY` in backend.
-  - Pas `EMAIL_FROM` en `OWNER_EMAIL` aan.
-
-## Let op (beveiliging)
-
-- Admin-beveiliging is **simpel** en bedoeld voor **persoonlijk gebruik**.
-- Gebruik lange willekeurige tokens en deel ze niet.
-- Voor een echte productieomgeving zijn extra maatregelen nodig (auth, rate-limit, validatie).
 
 ## Structuur
 ```
